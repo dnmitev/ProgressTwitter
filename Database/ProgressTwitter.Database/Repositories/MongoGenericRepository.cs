@@ -2,14 +2,16 @@
 {
     using Contracts;
     using Entities.Base;
+    using Util;
+
     using MongoDB.Bson;
     using MongoDB.Driver;
     using MongoDB.Driver.Linq;
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
-    using Util;
 
     /// <summary>
     /// Deals with entities in MongoDb.
@@ -92,6 +94,11 @@
         public string CollectionName
         {
             get { return this.collection.CollectionNamespace.CollectionName; }
+        }
+
+        public IQueryable<T> GetAll()
+        {
+            return this.Collection.AsQueryable();
         }
 
         /// <summary>

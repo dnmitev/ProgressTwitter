@@ -1,11 +1,11 @@
 ﻿namespace ProgressTwitter.Contracts
 {
+    using MongoDB.Driver;
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
-    using MongoDB.Bson;
-    using MongoDB.Driver;
 
     /// <summary>
     /// IRepository definition.
@@ -19,6 +19,12 @@
         /// Gets an implementation of Mongo collection contract (to perform advanced operations).
         /// </summary>
         IMongoCollection<T> Collection { get; }
+
+        /// <summary>
+        /// Get all entities from a collection
+        /// </summary>
+        /// <returns>all entities from a collection as IQueryable</returns>
+        IQueryable<T> GetAll();
 
         /// <summary>
         /// Returns the T by its given id.
