@@ -93,12 +93,20 @@
         /// </summary>
         public string CollectionName
         {
-            get { return this.collection.CollectionNamespace.CollectionName; }
+            get
+            {
+                return this.collection
+                            .CollectionNamespace
+                            .CollectionName;
+            }
         }
 
         public IQueryable<T> GetAll()
         {
-            return this.Collection.AsQueryable();
+            return this.Collection
+                        .Find(Builders<T>.Filter.Empty)
+                        .ToList()
+                        .AsQueryable();
         }
 
         /// <summary>
@@ -113,7 +121,7 @@
                 return this.GetById(new ObjectId(id as string));
             }
 
-            var filter = Builders<T>.Filter.Eq("_id", id);
+            var filter = Builders<T>.Filter.Eq("Id", id);
 
             return this.collection
                         .Find<T>(filter)
@@ -127,7 +135,7 @@
         /// <returns>The Entity T.</returns>
         public virtual T GetById(ObjectId id)
         {
-            var filter = Builders<T>.Filter.Eq("_id", id);
+            var filter = Builders<T>.Filter.Eq("Id", id);
 
             return this.collection
                         .Find<T>(filter)
@@ -162,8 +170,9 @@
         /// <returns>The updated entity.</returns>
         public virtual T Update(T entity)
         {
-            this.collection.ReplaceOne(
-                        Builders<T>.Filter.Eq("_id", entity.Id),
+            var a = Builders<T>.Filter.Eq("Id", entity.Id);
+            var b = this.collection.ReplaceOne(
+                        Builders<T>.Filter.Eq("Id", entity.Id),
                         entity);
 
             return entity;
@@ -178,7 +187,7 @@
             foreach (T entity in entities)
             {
                 this.collection.ReplaceOne(
-                            Builders<T>.Filter.Eq("_id", entity.Id),
+                            Builders<T>.Filter.Eq("Id", entity.Id),
                             entity);
             }
         }
@@ -191,11 +200,11 @@
         {
             if (typeof(T).IsSubclassOf(typeof(Entity)))
             {
-                this.collection.FindOneAndDelete(Builders<T>.Filter.Eq("_id", id));
+                this.collection.FindOneAndDelete(Builders<T>.Filter.Eq("Id", id));
             }
             else
             {
-                this.collection.FindOneAndDelete(Builders<T>.Filter.Eq("_id", BsonValue.Create(id)));
+                this.collection.FindOneAndDelete(Builders<T>.Filter.Eq("Id", BsonValue.Create(id)));
             }
         }
 
@@ -205,7 +214,7 @@
         /// <param name="id">The ObjectId of the entity.</param>
         public virtual void Delete(ObjectId id)
         {
-            this.collection.FindOneAndDelete(Builders<T>.Filter.Eq("_id", id));
+            this.collection.FindOneAndDelete(Builders<T>.Filter.Eq("Id", id));
         }
 
         /// <summary>

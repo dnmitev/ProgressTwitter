@@ -16,6 +16,11 @@
     [BsonIgnoreExtraElements(Inherited = true)]
     public abstract class Entity : IEntity<string>
     {
+        public Entity()
+        {
+            this.Id = ObjectId.GenerateNewId().ToString();
+        }
+
         /// <summary>
         /// Gets or sets the id for this object (the primary record for an entity).
         /// </summary>

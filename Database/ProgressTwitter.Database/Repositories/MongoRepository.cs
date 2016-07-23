@@ -1,7 +1,6 @@
 ﻿namespace ProgressTwitter.Database.Repositories
 {
     using Contracts;
-
     using MongoDB.Driver;
 
     /// <summary>
