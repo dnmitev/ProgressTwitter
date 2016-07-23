@@ -3,8 +3,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Contracts", "ProgressTwitter.Contracts\ProgressTwitter.Contracts.csproj", "{260B718B-6CA8-4FF8-8233-576B838CE103}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Entities", "ProgressTwitter.Entities\ProgressTwitter.Entities.csproj", "{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Database", "ProgressTwitter.Database\ProgressTwitter.Database.csproj", "{5136E685-2256-47EF-84EA-491B1E8FE00B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{260B718B-6CA8-4FF8-8233-576B838CE103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{260B718B-6CA8-4FF8-8233-576B838CE103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{260B718B-6CA8-4FF8-8233-576B838CE103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{260B718B-6CA8-4FF8-8233-576B838CE103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5136E685-2256-47EF-84EA-491B1E8FE00B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5136E685-2256-47EF-84EA-491B1E8FE00B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5136E685-2256-47EF-84EA-491B1E8FE00B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5136E685-2256-47EF-84EA-491B1E8FE00B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{260B718B-6CA8-4FF8-8233-576B838CE103} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
+		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
+		{5136E685-2256-47EF-84EA-491B1E8FE00B} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
 	EndGlobalSection
 EndGlobal
