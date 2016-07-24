@@ -70,6 +70,20 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Database\ProgressTwitter.Contracts\ProgressTwitter.Contracts.csproj">
+      <Project>{260b718b-6ca8-4ff8-8233-576b838ce103}</Project>
+      <Name>ProgressTwitter.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Database\ProgressTwitter.Database\ProgressTwitter.Database.csproj">
+      <Project>{5136E685-2256-47EF-84EA-491B1E8FE00B}</Project>
+      <Name>ProgressTwitter.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Database\ProgressTwitter.Entities\ProgressTwitter.Entities.csproj">
+      <Project>{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}</Project>
+      <Name>ProgressTwitter.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
