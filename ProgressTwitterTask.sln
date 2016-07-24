@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Entities", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDB.Test", "MongoDB.Test\MongoDB.Test.csproj", "{3C54F393-C612-4D71-BA28-6C1F07F68F4C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1B200C11-D5F8-48F0-9725-C74872155154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Database.Tests", "Tests\ProgressTwitter.Database.Tests\ProgressTwitter.Database.Tests.csproj", "{66AEE47C-100E-4706-BC93-855B0059BBC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,10 @@ Global
 		{3C54F393-C612-4D71-BA28-6C1F07F68F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C54F393-C612-4D71-BA28-6C1F07F68F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C54F393-C612-4D71-BA28-6C1F07F68F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66AEE47C-100E-4706-BC93-855B0059BBC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66AEE47C-100E-4706-BC93-855B0059BBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66AEE47C-100E-4706-BC93-855B0059BBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66AEE47C-100E-4706-BC93-855B0059BBC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,5 +51,6 @@ Global
 		{260B718B-6CA8-4FF8-8233-576B838CE103} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
 		{5136E685-2256-47EF-84EA-491B1E8FE00B} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
 		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
+		{66AEE47C-100E-4706-BC93-855B0059BBC0} = {1B200C11-D5F8-48F0-9725-C74872155154}
 	EndGlobalSection
 EndGlobal
