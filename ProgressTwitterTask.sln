@@ -5,35 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Contracts", "Database\ProgressTwitter.Contracts\ProgressTwitter.Contracts.csproj", "{260B718B-6CA8-4FF8-8233-576B838CE103}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Database", "Database\ProgressTwitter.Database\ProgressTwitter.Database.csproj", "{5136E685-2256-47EF-84EA-491B1E8FE00B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Entities", "Database\ProgressTwitter.Entities\ProgressTwitter.Entities.csproj", "{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1B200C11-D5F8-48F0-9725-C74872155154}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Database.Tests", "Tests\ProgressTwitter.Database.Tests\ProgressTwitter.Database.Tests.csproj", "{66AEE47C-100E-4706-BC93-855B0059BBC0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{77401175-B284-4252-94B0-B652E0989F8B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{0F94BEA6-EED8-43F3-81ED-093180EB81A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Database", "Database\ProgressTwitter.Database\ProgressTwitter.Database.csproj", "{A9700CFB-3D85-4F87-946F-F97E30B2569D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{B29E9281-4914-4584-8FE1-0BA2AF6DF96A}"
-	ProjectSection(SolutionItems) = preProject
-		PublishScripts\Scripts\Deploy-AzureResourceGroup-2.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup-2.ps1
-		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Entities", "Database\ProgressTwitter.Entities\ProgressTwitter.Entities.csproj", "{5D9F881D-FAEA-47DC-A7B5-1B87F7CA345E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{B7BAA1E4-3736-42BC-A256-729A3E7FEAD7}"
-	ProjectSection(SolutionItems) = preProject
-		PublishScripts\Templates\ProgressTwitterWeb-2.json = PublishScripts\Templates\ProgressTwitterWeb-2.json
-		PublishScripts\Templates\ProgressTwitterWeb.json = PublishScripts\Templates\ProgressTwitterWeb.json
-		PublishScripts\Templates\ProgressTwitterWeb.param.dev-2.json = PublishScripts\Templates\ProgressTwitterWeb.param.dev-2.json
-		PublishScripts\Templates\ProgressTwitterWeb.param.dev.json = PublishScripts\Templates\ProgressTwitterWeb.param.dev.json
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Web", "ProgressTwitter.Web\ProgressTwitter.Web.csproj", "{9EF31EF4-2D74-4362-9CB4-E4F20EA0A8A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTwitter.Web", "Web\ProgressTwitter.Web\ProgressTwitter.Web.csproj", "{45CEF865-3CD1-4874-B8CD-5A40FC81EC6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,37 +19,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{260B718B-6CA8-4FF8-8233-576B838CE103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{260B718B-6CA8-4FF8-8233-576B838CE103}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{260B718B-6CA8-4FF8-8233-576B838CE103}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{260B718B-6CA8-4FF8-8233-576B838CE103}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5136E685-2256-47EF-84EA-491B1E8FE00B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5136E685-2256-47EF-84EA-491B1E8FE00B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5136E685-2256-47EF-84EA-491B1E8FE00B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5136E685-2256-47EF-84EA-491B1E8FE00B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66AEE47C-100E-4706-BC93-855B0059BBC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66AEE47C-100E-4706-BC93-855B0059BBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66AEE47C-100E-4706-BC93-855B0059BBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66AEE47C-100E-4706-BC93-855B0059BBC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9EF31EF4-2D74-4362-9CB4-E4F20EA0A8A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EF31EF4-2D74-4362-9CB4-E4F20EA0A8A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EF31EF4-2D74-4362-9CB4-E4F20EA0A8A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EF31EF4-2D74-4362-9CB4-E4F20EA0A8A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9700CFB-3D85-4F87-946F-F97E30B2569D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9700CFB-3D85-4F87-946F-F97E30B2569D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9700CFB-3D85-4F87-946F-F97E30B2569D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9700CFB-3D85-4F87-946F-F97E30B2569D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D9F881D-FAEA-47DC-A7B5-1B87F7CA345E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D9F881D-FAEA-47DC-A7B5-1B87F7CA345E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D9F881D-FAEA-47DC-A7B5-1B87F7CA345E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D9F881D-FAEA-47DC-A7B5-1B87F7CA345E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45CEF865-3CD1-4874-B8CD-5A40FC81EC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45CEF865-3CD1-4874-B8CD-5A40FC81EC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45CEF865-3CD1-4874-B8CD-5A40FC81EC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45CEF865-3CD1-4874-B8CD-5A40FC81EC6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{260B718B-6CA8-4FF8-8233-576B838CE103} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
-		{5136E685-2256-47EF-84EA-491B1E8FE00B} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
-		{7F260A73-A428-4F1B-BB6D-D1E06793D0E1} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
-		{66AEE47C-100E-4706-BC93-855B0059BBC0} = {1B200C11-D5F8-48F0-9725-C74872155154}
-		{B29E9281-4914-4584-8FE1-0BA2AF6DF96A} = {0F94BEA6-EED8-43F3-81ED-093180EB81A7}
-		{B7BAA1E4-3736-42BC-A256-729A3E7FEAD7} = {0F94BEA6-EED8-43F3-81ED-093180EB81A7}
-		{9EF31EF4-2D74-4362-9CB4-E4F20EA0A8A2} = {77401175-B284-4252-94B0-B652E0989F8B}
+		{A9700CFB-3D85-4F87-946F-F97E30B2569D} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
+		{5D9F881D-FAEA-47DC-A7B5-1B87F7CA345E} = {8AF941BE-CBD2-4B82-AC6F-7E3328217CB0}
+		{45CEF865-3CD1-4874-B8CD-5A40FC81EC6E} = {77401175-B284-4252-94B0-B652E0989F8B}
 	EndGlobalSection
 EndGlobal
