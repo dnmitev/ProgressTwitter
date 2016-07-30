@@ -6,6 +6,10 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using ProgressTwitter.Web.Models;
+using ProgressTwitter.Web.Config;
+using System.Configuration;
+using Microsoft.Owin.Security.Twitter;
+using Microsoft.Owin.Security;
 
 namespace ProgressTwitter.Web
 {
@@ -15,7 +19,7 @@ namespace ProgressTwitter.Web
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(ApplicationIdentityContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
@@ -34,7 +38,7 @@ namespace ProgressTwitter.Web
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
@@ -50,9 +54,20 @@ namespace ProgressTwitter.Web
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(new TwitterAuthenticationOptions
+            {
+                ConsumerKey = ConfigurationManager.AppSettings["Twitter_Consumer_Key"],
+                ConsumerSecret = ConfigurationManager.AppSettings["Twitter_Consumer_Secret"],
+                BackchannelCertificateValidator = new CertificateSubjectKeyIdentifierValidator(new[]
+                {
+                    ConfigurationManager.AppSettings["VeriSign_Class_3_Secure_Server_CA_G2"], // VeriSign Class 3 Secure Server CA - G2
+                    ConfigurationManager.AppSettings["VeriSign_Class_3_Secure_Server_CA_G3"], // VeriSign Class 3 Secure Server CA - G3
+                    ConfigurationManager.AppSettings["VeriSign_Class_3_Public"], // VeriSign Class 3 Public Primary Certification Authority - G5
+                    ConfigurationManager.AppSettings["Symantec_Class_3_Secure_Server_CA_G4"], // Symantec Class 3 Secure Server CA - G4
+                    ConfigurationManager.AppSettings["DigiCert_SHA2_High_Assurance_Server_C‎A"], // DigiCert SHA2 High Assurance Server C‎A 
+                    ConfigurationManager.AppSettings["DigiCert_High_Assurance_EV_Root_CA"] // DigiCert High Assurance EV Root CA
+                })
+            });
 
             //app.UseFacebookAuthentication(
             //   appId: "",

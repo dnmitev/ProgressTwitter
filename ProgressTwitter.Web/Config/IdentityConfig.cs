@@ -6,11 +6,12 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using ProgressTwitter.Web.Models;
+using AspNet.Identity.MongoDB;
+using ProgressTwitter.Web.Config;
 
 namespace ProgressTwitter.Web
 {
@@ -42,7 +43,7 @@ namespace ProgressTwitter.Web
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationIdentityContext>().Users));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
@@ -85,6 +86,60 @@ namespace ProgressTwitter.Web
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
+        }
+
+        /// <summary>
+        /// Method to add user to multiple roles
+        /// </summary>
+        /// <param name="userId">user id</param>
+        /// <param name="roles">list of role names</param>
+        /// <returns></returns>
+        public virtual async Task<IdentityResult> AddUserToRolesAsync(string userId, IList<string> roles)
+        {
+            var userRoleStore = (IUserRoleStore<ApplicationUser, string>)Store;
+
+            var user = await FindByIdAsync(userId).ConfigureAwait(false);
+            if (user == null)
+            {
+                throw new InvalidOperationException("Invalid user Id");
+            }
+
+            var userRoles = await userRoleStore.GetRolesAsync(user).ConfigureAwait(false);
+            // Add user to each role using UserRoleStore
+            foreach (var role in roles.Where(role => !userRoles.Contains(role)))
+            {
+                await userRoleStore.AddToRoleAsync(user, role).ConfigureAwait(false);
+            }
+
+            // Call update once when all roles are added
+            return await UpdateAsync(user).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Remove user from multiple roles
+        /// </summary>
+        /// <param name="userId">user id</param>
+        /// <param name="roles">list of role names</param>
+        /// <returns></returns>
+        public virtual async Task<IdentityResult> RemoveUserFromRolesAsync(string userId, IList<string> roles)
+        {
+            var userRoleStore = (IUserRoleStore<ApplicationUser, string>)Store;
+
+            var user = await FindByIdAsync(userId).ConfigureAwait(false);
+            if (user == null)
+            {
+                throw new InvalidOperationException("Invalid user Id");
+            }
+
+            var userRoles = await userRoleStore.GetRolesAsync(user).ConfigureAwait(false);
+            // Remove user to each role using UserRoleStore
+            foreach (var role in roles.Where(userRoles.Contains))
+            {
+                await userRoleStore.RemoveFromRoleAsync(user, role).ConfigureAwait(false);
+            }
+
+            // Call update once when all roles are removed
+            return await UpdateAsync(user).ConfigureAwait(false);
         }
     }
 
